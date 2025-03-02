@@ -1,6 +1,7 @@
 # Movie Search Tool
 
 ![Movie Search Tool Screenshot](img/movieapp.jpg)
+![Movie Search Tool Screenshot](img/movieapp1.jpp)
 
 
 
