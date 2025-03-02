@@ -1,70 +1,140 @@
-# Getting Started with Create React App
+# Movie Search Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Movie Search Tool Screenshot](img/movieapp.jpg)
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+## 🎬 Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A responsive web application that allows users to search for movies using the OMDb API. This project was developed as part of a technical assessment for a Junior Full-Stack Developer position.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Live demo: [https://gisellejohnson.co.uk/movie-search-tool](https://gisellejohnson.co.uk/movie-search-tool)
 
-### `npm test`
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Core Requirements
+- Search for movies by title using the OMDb API
+- Display movie results with title, year, and poster
+- View detailed movie information in a modal (plot, director, IMDb rating, etc.)
+- Responsive design that works on mobile and desktop
 
-### `npm run build`
+### Bonus Features
+- ✅ Loading state: Shows a spinner while fetching data
+- ✅ Error handling: Displays user-friendly error messages
+- ✅ Pagination: Navigate through multiple pages of results
+- ✅ Favorites: Save favorite movies using local storage
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Additional Enhancements
+- Dynamic hover effects on movie cards
+- Comprehensive detail view with tabbed sections
+- "Jump to page" feature for searches with many results
+- Responsive movie card grid that adapts to different screen sizes
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🛠️ Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **React** - UI library
+- **Bootstrap** - CSS framework
+- **Axios** - HTTP client for API requests
+- **React Icons** - Icon library
+- **Local Storage API** - For saving favorites
 
-### `npm run eject`
+## 🚀 Setup and Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
+- Node.js (v14.0.0 or later)
+- npm (v6.0.0 or later)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Installation Steps
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repository
+   ```bash
+   git clone https://github.com/yourusername/movie-search-tool.git
+   cd movie-search-tool
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Install dependencies
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. Get an API key from [OMDb API](https://www.omdbapi.com/apikey.aspx)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Open `src/services/api.js` and replace the API key with your own:
+   ```javascript
+   const API_KEY = 'your-omdb-api-key';
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. Start the development server
+   ```bash
+   npm start
+   ```
 
-### Code Splitting
+6. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 📦 Build for Production
 
-### Analyzing the Bundle Size
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This creates a `build` directory with optimized production files.
 
-### Making a Progressive Web App
+## 📋 API Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This project uses the [OMDb API](https://www.omdbapi.com/) to fetch movie data. Two main endpoints are used:
 
-### Advanced Configuration
+1. Search by title: `https://www.omdbapi.com/?s={query}&page={page}&apikey={apiKey}`
+2. Get movie details: `https://www.omdbapi.com/?i={imdbId}&apikey={apiKey}`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🌟 How to Use
 
-### Deployment
+1. Type a movie title in the search bar and click "Search"
+2. Browse through the results or navigate through pages
+3. Click on a movie card to view detailed information
+4. Click the heart icon to add/remove a movie from favorites
+5. View your favorite movies at the top of the page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📐 Project Structure
 
-### `npm run build` fails to minify
+```
+movie-search-tool/
+├── src/
+│   ├── components/
+│   │   ├── SearchBar.jsx
+│   │   ├── MovieList.jsx
+│   │   ├── MovieCard.jsx
+│   │   ├── MovieDetail.jsx
+│   │   ├── Pagination.jsx
+│   │   ├── Favorites.jsx
+│   │   └── Loader.jsx
+│   ├── services/
+│   │   └── api.js
+│   ├── App.js
+│   └── index.js
+├── public/
+│   ├── favicon.ico
+│   └── index.html
+└── package.json
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔧 Future Improvements
+
+- Add search filters (year, type, etc.)
+- Implement user authentication
+- Add movie recommendations
+- Create custom lists beyond favorites
+- Add movie trailers integration
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🙏 Acknowledgements
+
+- [OMDb API](https://www.omdbapi.com/) for providing movie data
+- [Cinema icons created by fjstudio - Flaticon](https://www.flaticon.com/free-icons/cinema) for the application icon
+- Assessment requirements provided by [Employer Name]
+
+---
+
+Developed by [Giselle Johnson](https://gisellejohnson.co.uk) | © 2025

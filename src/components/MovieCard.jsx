@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { FaStar, FaHeart, FaRegHeart } from 'react-icons/fa';
 
 const MovieCard = ({ movie, onClick, isFavorite, onToggleFavorite }) => {
   const posterUrl = movie.Poster !== 'N/A' ? movie.Poster : 'https://via.placeholder.com/300x450?text=No+Poster';

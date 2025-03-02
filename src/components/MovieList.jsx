@@ -1,13 +1,18 @@
 import React from 'react';
 import MovieCard from './MovieCard';
 
-const MovieList = ({ movies, onSelectMovie, favorites, onToggleFavorite }) => {
+const MovieList = ({ movies, onSelectMovie, favorites, onToggleFavorite, searchPerformed }) => {
   if (!movies.length) {
-    return (
-      <div className="text-center py-5">
-        <p className="text-muted fs-5">Bummer! No movies found. Try a different search term.</p>
-      </div>
-    );
+    // Only show the "no results" message if a search was actually performed
+    if (searchPerformed) {
+      return (
+        <div className="text-center py-5">
+          <p className="text-muted fs-5">No movies found. Try a different search term.</p>
+        </div>
+      );
+    }
+    // If no search performed yet, don't show any message
+    return null;
   }
 
   return (
@@ -25,5 +30,6 @@ const MovieList = ({ movies, onSelectMovie, favorites, onToggleFavorite }) => {
     </div>
   );
 };
+
 
 export default MovieList;

@@ -158,10 +158,17 @@ function App() {
 
         {searchTerm && !loading && (
           <div className="mb-4 pb-2 border-bottom">
-            <h2 className="h4 fw-bold">
-              {totalResults > 0 
-                ? <span>Found <span className="text-primary">{totalResults}</span> results for "<em>{searchTerm}</em>"</span>
-                : <span>No results found for "<em>{searchTerm}</em>"</span>}
+            <h2 className="h4 fw-bold d-flex justify-content-between align-items-center">
+              <span>
+                {totalResults > 0 
+                  ? <span>Found <span className="text-primary">{totalResults}</span> results for "<em>{searchTerm}</em>"</span>
+                  : <span>No results found for "<em>{searchTerm}</em>"</span>}
+              </span>
+              {totalResults > 10 && (
+                <small className="text-muted">
+                  Showing {(currentPage - 1) * 10 + 1}-{Math.min(currentPage * 10, totalResults)} of {totalResults}
+                </small>
+              )}
             </h2>
           </div>
         )}
@@ -175,9 +182,11 @@ function App() {
               onSelectMovie={handleSelectMovie}
               favorites={favorites}
               onToggleFavorite={handleToggleFavorite}
+              searchPerformed={searchTerm !== ''}
             />
             
-            {totalResults > 10 && (
+            {/* Always show pagination when there are results, not just when > 10 */}
+            {totalResults > 0 && (
               <div className="mt-4">
                 <Pagination 
                   currentPage={currentPage}
@@ -192,7 +201,12 @@ function App() {
 
       <footer className="bg-dark text-white py-4 mt-5">
         <div className="container text-center">
-          <p className="mb-0">© 2025 Movie Search Tool | Powered by OMDb API</p>
+          <p className="mb-1">© 2025 Movie Search Tool | Powered by OMDb API</p>
+          <small className="text-muted">
+            <a href="https://www.flaticon.com/free-icons/cinema" title="cinema icons" className="text-muted" target="_blank" rel="noopener noreferrer">
+              Cinema icons created by fjstudio - Flaticon
+            </a>
+          </small>
         </div>
       </footer>
 
