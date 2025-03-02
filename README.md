@@ -26,7 +26,6 @@ Live demo: [https://gisellejohnson.co.uk/movie-search-tool](https://gisellejohns
 - ✅ Favorites: Save favorite movies using local storage
 
 ### Additional Enhancements
-- Dynamic hover effects on movie cards
 - Comprehensive detail view with tabbed sections
 - "Jump to page" feature for searches with many results
 - Responsive movie card grid that adapts to different screen sizes
